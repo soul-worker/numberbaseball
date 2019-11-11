@@ -196,6 +196,8 @@
         document.getElementById("currentNumber").innerHTML = string;
         count++;
       }
+else if(count == 4)
+document.getElementById("currentNumber").innerHTML = "&nbsp;&nbsp;&nbsp;";
     }
 
     function eraseNum() {
@@ -217,6 +219,8 @@
         evalNum(playernum);
 
       }
+else if(count == 4)
+alert("게임이 끝났습니다. 다시 하려면 restart 버튼을 클릭해 주세요.");
       else {
         alert("1~9 사이의 중복되지 않는 3자리 숫자를 입력해 주세요.");
       }
