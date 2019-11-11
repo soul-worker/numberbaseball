@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Number Baseball</title>
+
+  <style>
+    body {
+      text-align: center;
+      max-width: 100%;
+    }
+    
+    span {
+      font-size: 150%;
+      color: red;
+      font-weight: bold;
+    }
+    div.buttons button, p#currentNumber{
+      font-size:30px;
+    }
+    table{
+      border:1px solid black;
+      font-size:16px;
+    }
+    table tbody td{
+      border:1px solid black;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <h1>소최지를 위한 숫자야구 시뮬레이터</h1>
+
+  <div>
+    <div style="display:inline-block; width :40%;">
+      <div style="display:block;">
+        <img id="chr" src="stellasample.png" style="display:inline-block; width:30%">
+        <div style="display:inline-block; width:60%; border:2px dashed black; border-radius: 1em; vertical-align: top;">
+          <p style="display:block;" id="text">스텔라는요... 그냥...</p>
+          <p id="plustext" style="display:block;">여러분들에게 슬픔의 숫자 3개를 선물하려 해요...</p>
+        </div>
+      </div>
+    
+      <div style="display:block;">
+        <p id="currentNumber" style="border:1px solid black; height:20%">&nbsp;</p>
+        <div class="buttons">
+          <button type="button" onclick="enterNum('1');">1</button>
+          <button type="button" onclick="enterNum('2');">2</button>
+          <button type="button" onclick="enterNum('3');">3</button>
+        </div>
+        <div class="buttons">
+          <button type="button" onclick="enterNum('4');">4</button>
+          <button type="button" onclick="enterNum('5');">5</button>
+          <button type="button" onclick="enterNum('6');">6</button>
+        </div>
+        <div class="buttons">
+          <button type="button" onclick="enterNum('7');">7</button>
+          <button type="button" onclick="enterNum('8');">8</button>
+          <button type="button" onclick="enterNum('9');">9</button>
+        </div>
+        <div class="buttons">
+          <button type="button" onclick="eraseNum();">&ShortLeftArrow;</button>
+          <button type="button" onclick="is3Num();">입력</button>
+        </div>
+      </div>
+      </div>
+    <!--<p id="answer">정답 보여주는곳</p>//-->
+
+    
+      <table style="display:inline-block; vertical-align: top;">
+        <thead>
+          <tr>
+            <td>라운드</td>
+            <td>입력한 수</td>
+            <td>결과</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td id="num1"></td>
+            <td id="bs1"></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td id="num2"></td>
+            <td id="bs2"></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td id="num3"></td>
+            <td id="bs3"></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td id="num4"></td>
+            <td id="bs4"></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td id="num5"></td>
+            <td id="bs5"></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td id="num6"></td>
+            <td id="bs6"></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td id="num7"></td>
+            <td id="bs7"></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td id="num8"></td>
+            <td id="bs8"></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td id="num9"></td>
+            <td id="bs9"></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td id="num10"></td>
+            <td id="bs10"></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td id="num11"></td>
+            <td id="bs11"></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td id="num12"></td>
+            <td id="bs12"></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td id="num13"></td>
+            <td id="bs13"></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td id="num14"></td>
+            <td id="bs14"></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td id="num15"></td>
+            <td id="bs15"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td> </td>
+            <td id="result" style="font-weight:bold;font-size: 18px;"></td>
+            <td> </td>
+          </tr>
+        </tfoot>
+      </table>
+
+  </div>
+
+
+
+  <script type="text/javascript">
+    var answer = new Array(3);
+    var playernum = new Array(3);
+
+    var string = "";
+    var count = 0;
+    var round = 0;
+
+    answer[0] = Math.floor(Math.random() * 8 + 1);
+    while (true) {
+      answer[1] = Math.floor(Math.random() * 8 + 1);
+      if (answer[1] != answer[0])
+        break;
+    }
+    while (true) {
+      answer[2] = Math.floor(Math.random() * 8 + 1);
+      if (answer[2] != answer[0] && answer[2] != answer[1])
+        break;
+    }
+    //document.getElementById("answer").innerHTML = answer[0]+""+answer[1]+""+answer[2];
+
+    function enterNum(number) {
+      if (count < 3) {
+        var num = parseInt(number);
+        string += num;
+        document.getElementById("currentNumber").innerHTML = string;
+        count++;
+      }
+    }
+
+    function eraseNum() {
+      string = string.slice(0, -1);
+      if(string.length ==0)
+        document.getElementById("currentNumber").innerHTML = "&nbsp;";
+      else
+      document.getElementById("currentNumber").innerHTML = string;
+      
+      count--;
+    }
+
+    function is3Num() {
+      if (string.charAt(0) != string.charAt(1) && string.charAt(0) != string.charAt(2) && string.charAt(1) != string.charAt(2)) {
+        for (var i = 0; i < 3; i++) {
+          playernum[i] = string.charAt(i);
+        }
+        round++;
+        evalNum(playernum);
+
+      }
+      else {
+        alert("1~9 사이의 중복되지 않는 3자리 숫자를 입력해 주세요.");
+      }
+      string = "";
+      document.getElementById("currentNumber").innerHTML = "&nbsp;";
+      count = 0;
+    }
+
+    function evalNum(playernum) {
+      var numArr = playernum;
+      var strike = 0;
+      var ball = 0;
+      var bsstate;
+      var num = "num";
+      var bs = "bs";
+      for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++) {
+          if (answer[i] == numArr[j]) {
+            if (i == j)
+              strike += 1;
+            else
+              ball += 1;
+          }
+        }
+      }
+      if (strike == 0 && ball == 0)
+        bsstate = "OUT";
+      else if (strike == 0 && ball == 1)
+        bsstate = "1B";
+      else if (strike == 0 && ball == 2)
+        bsstate = "2B";
+      else if (strike == 0 && ball == 3)
+        bsstate = "3B";
+      else if (strike == 1 && ball == 0)
+        bsstate = "1S";
+      else if (strike == 1 && ball == 1)
+        bsstate = "1S1B";
+      else if (strike == 1 && ball == 2)
+        bsstate = "1S2B";
+      else if (strike == 2 && ball == 0)
+        bsstate = "2S";
+      else if (strike == 2 && ball == 1)
+        bsstate = "2S1B";
+      else if (strike == 3 && ball == 0)
+        bsstate = "3S";
+      document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야!";
+      num += round;
+      bs += round;
+      document.getElementById(num).innerHTML = "" + numArr[0] + numArr[1] + numArr[2];
+      document.getElementById(bs).innerHTML = bsstate;
+      if (bsstate == "3S") {
+        document.getElementById("result").innerHTML = "WIN!";
+        if (round == 1) {
+          document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 우와...한 번에 맞춰버렸어...";
+          document.getElementById("chr").src = "stella1.png"
+        }
+        else if (round >= 2 && round <= 5) {
+          document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 오오! 영감님보다 더 빨리 풀었어!";
+          document.getElementById("chr").src = "stella2.png"
+        }
+        else if (round >= 12 && round <= 15) {
+          document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 아슬아슬했다...";
+          document.getElementById("chr").src = "stella3.png"
+        }
+        else {
+          document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 영감님이랑 똑같은 기록이네!";
+          document.getElementById("chr").src = "stella4.png"
+        }
+        document.getElementById("plustext").innerHTML = "우리 한 번 더 하자! <button type = 'button' onclick='location.href=" + '"example.html"' + "'>restart</button>";
+      }
+      else if (round == 15 && bsstate != "3S") {
+        document.getElementById("result").innerHTML = "LOSE!";
+        document.getElementById("text").innerHTML = "내가 이겼다! 대신 다음 판엔 내가 져 줄게!";
+        document.getElementById("chr").src = "stella5.png"
+        document.getElementById("plustext").innerHTML = "<button type = 'button' onclick='location.href=" + '"example.html"' + "'>restart</button>";
+      }
+      else {
+        if (bsstate == "2S" || bsstate == "1S2B" || bsstate == "3B") {
+          document.getElementById("plustext").innerHTML = "거의 다 왔어!";
+          document.getElementById("chr").src = "stella7.png"
+        }
+        else if (bsstate == "OUT") {
+          document.getElementById("plustext").innerHTML = "다시 해 봐!";
+          document.getElementById("chr").src = "stella6.png"
+        }
+        else {
+          document.getElementById("plustext").innerHTML = "힘내서 가는 거야~";
+          document.getElementById("chr").src = "stella8.png"
+        }
+
+      }
+
+    }
+  </script>
+</body>
+
+</html>
