@@ -10,6 +10,7 @@
     body {
       text-align: center;
       max-width: 100%;
+      max-height:100%;
     }
     
     a, a:hover, a:visited, a:focus, a:active{
@@ -46,10 +47,10 @@
   <div style="width:100%">
     <div style="display:inline-block; width:40%; margin-right:2%">
       <div style="display:block;">
-        <img id="chr" src="lilysample.png" style="display:block; margin: 0px auto;">
+        <img id="chr" src="lilysample.png" style="display:block; margin: 5px auto;">
         <div style="display:block; border:2px dashed black; border-radius: 1em; padding: 0px 5px;width:auto;height:auto;">
-          <p style="display:block;" id="text">어머~ 요조숙녀는 잠시 잊어요!</p>
-          <p id="plustext" style="display:block;">저 릴리는 오늘 광기의 숫자 3개를 던질 예정이라구욧!</p>
+          <p style="display:block;margin-bottom:0px;" id="text">어머~ 요조숙녀는 잠시 잊어요!</p>
+          <p id="plustext" style="display:block;margin-top:0px;">저 릴리는 오늘 광기의 숫자 3개를 던질 예정이라구욧!</p>
         </div>
       </div>
 
@@ -235,8 +236,8 @@
 
       function rule(){
         document.getElementById("chr").src = "lily8.png";
-        document.getElementById("text").innerHTML = "<span>볼(B)</span>은 숫자는 같지만 위치가 다르고"
-        document.getElementById("plustext").innerHTML = "<span>스트라이크(S)</span>는 숫자와 위치가 모두 같답니다."
+        document.getElementById("text").innerHTML = "<span>볼(B)</span>은 숫자는 같지만 위치가 다르고<br><span>스트라이크(S)</span>는 숫자와 위치가 모두 같답니다."
+        document.getElementById("plustext").innerHTML = "<span>OUT은 포함되지 않은 숫자이니 제외하고 3S를 맞히시면 된답니다."
       }
 
       function evalNum(playernum) {
