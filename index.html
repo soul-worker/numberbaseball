@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            function jumpto(obj){
+                var address = "";
+                switch(obj){
+                    case "하루":
+                        address = "harunb.html";
+                        break;
+                    case "어윈":
+                        address = "erwinnb.html";
+                        break;
+                    case "릴리":
+                        address = "lilynb.html";
+                        break;
+                    case "스텔라":
+                        address = "stellanb.html";
+                        break;
+                    case "진":
+                        address = "jinnb.html";
+                        break;
+                    case "이리스":
+                        address = "irisnb.html";
+                        break;
+                    case "치이":
+                        address = "chiinb.html";
+                        break;
+                }
+                window.location = address;
+            }
+        var name = prompt("캐릭터 이름을 적어주세요.");
+        jumpto(name);
+        </script>
+    </body>
+</html>

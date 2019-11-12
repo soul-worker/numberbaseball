@@ -11,12 +11,12 @@
       text-align: center;
       max-width: 100%;
     }
-
+    
     a, a:hover, a:visited, a:focus, a:active{
       color:black;
       text-decoration: none;
     }
-    
+
     span {
       font-size: 150%;
       color: red;
@@ -40,16 +40,16 @@
 </head>
 
 <body>
-  <h1><a href = "index.html">소최지를 위한 숫자야구 시뮬레이터</a></h1>
+    <h1><a href = "index.html">소최지를 위한 숫자야구 시뮬레이터</a></h1>
   <br>
   <br>
   <div style="width:100%">
     <div style="display:inline-block; width:40%; margin-right:2%">
       <div style="display:block;">
-        <img id="chr" src="stellasample.png" style="display:block; margin: 0px auto;">
+        <img id="chr" src="lilysample.png" style="display:block; margin: 0px auto;">
         <div style="display:block; border:2px dashed black; border-radius: 1em; padding: 0px 5px;width:auto;height:auto;">
-          <p style="display:block;" id="text">스텔라는요... 그냥...</p>
-          <p id="plustext" style="display:block;">여러분들에게 슬픔의 숫자 3개를 선물하려 해요...</p>
+          <p style="display:block;" id="text">어머~ 요조숙녀는 잠시 잊어요!</p>
+          <p id="plustext" style="display:block;">저 릴리는 오늘 광기의 숫자 3개를 던질 예정이라구욧!</p>
         </div>
       </div>
 
@@ -234,9 +234,9 @@
       }
 
       function rule(){
-        document.getElementById("chr").src = "stella8.png";
-        document.getElementById("text").innerHTML = "<span>볼(B)</span>은 숫자는 같은데 위치가 다른 거고"
-        document.getElementById("plustext").innerHTML = "<span>스트라이크(S)</span>는 숫자, 위치 둘 다 같아!"
+        document.getElementById("chr").src = "lily8.png";
+        document.getElementById("text").innerHTML = "<span>볼(B)</span>은 숫자는 같지만 위치가 다르고"
+        document.getElementById("plustext").innerHTML = "<span>스트라이크(S)</span>는 숫자와 위치가 모두 같답니다."
       }
 
       function evalNum(playernum) {
@@ -276,7 +276,7 @@
           bsstate = "2S1B";
         else if (strike == 3 && ball == 0)
           bsstate = "3S";
-        document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야!";
+        document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이군요.";
         num += round;
         bs += round;
         document.getElementById(num).innerHTML = "" + numArr[0] + numArr[1] + numArr[2];
@@ -284,22 +284,22 @@
         if (bsstate == "3S") {
           document.getElementById("result").innerHTML = "WIN!";
           if (round == 1) {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 우와...한 번에 맞춰버렸어...";
-            document.getElementById("chr").src = "stella1.png"
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이군요. 어떻게... 제 생각을 읽으셨는지요?";
+            document.getElementById("chr").src = "lily1.png"
           }
           else if (round >= 2 && round <= 5) {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 오오! 영감님보다 더 빨리 풀었어!";
-            document.getElementById("chr").src = "stella2.png"
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이군요. 오호라, 제법이네요.";
+            document.getElementById("chr").src = "lily2.png"
           }
           else if (round >= 11 && round <= 15) {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 아슬아슬했다...";
-            document.getElementById("chr").src = "stella3.png"
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이군요. 죽다 겨우 살아났네요.";
+            document.getElementById("chr").src = "lily3.png"
           }
           else {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이야! 영감님이랑 똑같은 기록이네!";
-            document.getElementById("chr").src = "stella4.png"
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이군요. 좋은 승부였어요.";
+            document.getElementById("chr").src = "lily4.png"
           }
-          document.getElementById("plustext").innerHTML = "우리 한 번 더 하자! <button type = 'button' onclick='location.href=" + '"stellanb.html"' + "'>restart</button>";
+          document.getElementById("plustext").innerHTML = "다시 도전하시겠어요? <button type = 'button' onclick='location.href=" + '"lilynb.html"' + "'>restart</button>";
           for (var i = 0; i < 13; i++) {
             var btns = document.getElementsByClassName("btn");
             btns[i].disabled = "true";
@@ -307,9 +307,9 @@
         }
         else if (round == 15 && bsstate != "3S") {
           document.getElementById("result").innerHTML = "LOSE!";
-          document.getElementById("text").innerHTML = "내가 이겼다! 대신 다음 판엔 내가 져 줄게!";
-          document.getElementById("chr").src = "stella5.png"
-          document.getElementById("plustext").innerHTML = "<button type = 'button' onclick='location.href=" + '"stellanb.html"' + "'>restart</button>";
+          document.getElementById("text").innerHTML = "정말이지 시시하기 짝이 없는 승부로군요. 전력으로 덤비시죠!";
+          document.getElementById("chr").src = "lily5.png"
+          document.getElementById("plustext").innerHTML = "<button type = 'button' onclick='location.href=" + '"lilynb.html"' + "'>restart</button>";
           for (var i = 0; i < 13; i++) {
             var btns = document.getElementsByClassName("btn");
             btns[i].disabled = "true";
@@ -317,16 +317,16 @@
         }
         else {
           if (bsstate == "2S" || bsstate == "1S2B" || bsstate == "3B") {
-            document.getElementById("plustext").innerHTML = "거의 다 왔어!";
-            document.getElementById("chr").src = "stella7.png"
+            document.getElementById("plustext").innerHTML = "좀만 더 힘내 보시길.";
+            document.getElementById("chr").src = "lily7.png"
           }
           else if (bsstate == "OUT") {
-            document.getElementById("plustext").innerHTML = "다시 해 봐!";
-            document.getElementById("chr").src = "stella6.png"
+            document.getElementById("plustext").innerHTML = "한심하네요.";
+            document.getElementById("chr").src = "lily6.png"
           }
           else {
-            document.getElementById("plustext").innerHTML = "힘내서 가는 거야~";
-            document.getElementById("chr").src = "stella8.png"
+            document.getElementById("plustext").innerHTML = "순조롭네요.";
+            document.getElementById("chr").src = "lily8.png"
           }
 
         }
