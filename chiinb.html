@@ -305,9 +305,7 @@
           }
         }
         else if (round == 15 && bsstate != "3S") {
-          document.getElementById("result").innerHTML = "LOSE!";
-          string = ""+answer[0]+answer[1]+answer[2];
-          document.getElementById("currentNumber").innerHTML = "답: "+string;
+          document.getElementById("result").innerHTML = "LOSE! 답: "+String(answer[0])+String(answer[1])+String(answer[2]);
           document.getElementById("text").innerHTML = "네가 이길 때까지 도와줄게.";
           document.getElementById("chr").src = "chii5.png"
           document.getElementById("plustext").innerHTML = "<button type = 'button' onclick='location.href=" + '"chiinb.html"' + "'>restart</button>";
