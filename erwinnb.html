@@ -276,7 +276,7 @@
           bsstate = "2S1B";
         else if (strike == 3 && ball == 0)
           bsstate = "3S";
-        document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이네.";
+        document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> !";
         num += round;
         bs += round;
         document.getElementById(num).innerHTML = "" + numArr[0] + numArr[1] + numArr[2];
@@ -284,19 +284,19 @@
         if (bsstate == "3S") {
           document.getElementById("result").innerHTML = "WIN!";
           if (round == 1) {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이네. 뭐야, 치트 썼냐?";
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> ! 뭐야, 치트 썼냐?";
             document.getElementById("chr").src = "erwin1.png"
           }
           else if (round >= 2 && round <= 5) {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이네. Z타민도 노릴 수 있겠어!";
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> ! Z타민도 노릴 수 있겠어!";
             document.getElementById("chr").src = "erwin2.png"
           }
           else if (round >= 11 && round <= 15) {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이네. 이름도 기억 안 나는 비타민이나 겨우 받겠네.";
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> ! 이름도 기억 안 나는 비타민이나 겨우 받겠네.";
             document.getElementById("chr").src = "erwin3.png"
           }
           else {
-            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> 이네. 그나마 G타민은 건지겠군.";
+            document.getElementById("text").innerHTML = "<span>" + bsstate + "</span> ! 그나마 G타민은 건지겠군.";
             document.getElementById("chr").src = "erwin4.png"
           }
           document.getElementById("plustext").innerHTML = "야, 한 판 더 해! <button type = 'button' onclick='location.href=" + '"erwinnb.html"' + "'>restart</button>";
