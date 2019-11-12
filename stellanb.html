@@ -47,23 +47,23 @@
       <div style="display:block;">
         <p id="currentNumber" style="border:1px solid black; height:20%">&nbsp;</p>
         <div class="buttons">
-          <button type="button" class="btns" onclick="enterNum('1');">1</button>
-          <button type="button" class="btns" onclick="enterNum('2');">2</button>
-          <button type="button" class="btns" onclick="enterNum('3');">3</button>
+          <button type="button" id="btn1" onclick="enterNum('1');">1</button>
+          <button type="button" id="btn2" onclick="enterNum('2');">2</button>
+          <button type="button" id="btn3" onclick="enterNum('3');">3</button>
         </div>
         <div class="buttons">
-          <button type="button" class="btns" onclick="enterNum('4');">4</button>
-          <button type="button" class="btns" onclick="enterNum('5');">5</button>
-          <button type="button" class="btns" onclick="enterNum('6');">6</button>
+          <button type="button" id="btn4" onclick="enterNum('4');">4</button>
+          <button type="button" id="btn5" onclick="enterNum('5');">5</button>
+          <button type="button" id="btn6" onclick="enterNum('6');">6</button>
         </div>
         <div class="buttons">
-          <button type="button" class="btns" onclick="enterNum('7');">7</button>
-          <button type="button" class="btns" onclick="enterNum('8');">8</button>
-          <button type="button" class="btns" onclick="enterNum('9');">9</button>
+          <button type="button" id="btn7" onclick="enterNum('7');">7</button>
+          <button type="button" id="btn8" onclick="enterNum('8');">8</button>
+          <button type="button" id="btn9" onclick="enterNum('9');">9</button>
         </div>
         <div class="buttons">
-          <button type="button" class="btns" onclick="eraseNum();">&ShortLeftArrow;</button>
-          <button type="button" class="btns" onclick="is3Num();">입력</button>
+          <button type="button" id="btn10" onclick="eraseNum();">&ShortLeftArrow;</button>
+          <button type="button" id="btn11" onclick="is3Num();">입력</button>
         </div>
       </div>
       </div>
@@ -217,8 +217,6 @@
         evalNum(playernum);
 
       }
-else if(count == 4)
-alert("게임이 끝났습니다. 다시 하려면 restart 버튼을 클릭해 주세요.");
       else {
         alert("1~9 사이의 중복되지 않는 3자리 숫자를 입력해 주세요.");
       }
@@ -288,14 +286,22 @@ alert("게임이 끝났습니다. 다시 하려면 restart 버튼을 클릭해 �
           document.getElementById("chr").src = "stella4.png"
         }
         document.getElementById("plustext").innerHTML = "우리 한 번 더 하자! <button type = 'button' onclick='location.href=" + '"stellanb.html"' + "'>restart</button>";
-document.getElementsByClass("btns").disabled = "disabled";
+for(var i = 1; i<12; i++){
+var bName = "btn"
+bName += i;
+document.getElementById(bName).disabled = "true";
+}
       }
       else if (round == 15 && bsstate != "3S") {
         document.getElementById("result").innerHTML = "LOSE!";
         document.getElementById("text").innerHTML = "내가 이겼다! 대신 다음 판엔 내가 져 줄게!";
         document.getElementById("chr").src = "stella5.png"
         document.getElementById("plustext").innerHTML = "<button type = 'button' onclick='location.href=" + '"stellanb.html"' + "'>restart</button>";
-document.getElementsByClass("btns").disabled = "disabled";
+for(var i = 1; i<12; i++){
+var bName = "btn"
+bName += i;
+document.getElementById(bName).disabled = "true";
+}
       }
       else {
         if (bsstate == "2S" || bsstate == "1S2B" || bsstate == "3B") {
