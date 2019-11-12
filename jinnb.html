@@ -305,7 +305,7 @@
           }
         }
         else if (round == 15 && bsstate != "3S") {
-          document.getElementById("result").innerHTML = "LOSE!";
+          document.getElementById("result").innerHTML = "LOSE! 답: "+String(answer[0])+String(answer[1])+String(answer[2]);
           document.getElementById("text").innerHTML = "괜찮습니다! 이기실 때까지 제가 상대해 드리겠습니다!";
           document.getElementById("chr").src = "jin5.png"
           document.getElementById("plustext").innerHTML = "<button type = 'button' onclick='location.href=" + '"jinnb.html"' + "'>restart</button>";
