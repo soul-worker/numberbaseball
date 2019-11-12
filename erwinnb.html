@@ -10,6 +10,7 @@
     body {
       text-align: center;
       max-width: 100%;
+      max-height: 100%;
     }
 
     a, a:hover, a:visited, a:focus, a:active{
@@ -45,11 +46,11 @@
   <br>
   <div style="width:100%">
     <div style="display:inline-block; width:40%; margin-right:2%">
-      <div style="display:block;">
+      <div style="display:block; margin-bottom: 10px;">
         <img id="chr" src="erwinsample.png" style="display:block; margin: 0px auto;">
         <div style="display:block; border:2px dashed black; border-radius: 1em; padding: 0px 5px;width:auto;height:auto;">
-        <p style="display:block;" id="text">헤헷~ 형들 자극적인 거 원해?</p>
-          <p id="plustext" style="display:block;">나 어윈이 던지는 쾌락의 숫자 3개로 한 판 놀아보자구!</p>
+        <p style="display:block;margin-bottom:0px;" id="text">헤헷~ 형들 자극적인 거 원해?</p>
+          <p id="plustext" style="display:block;margin-top:0px;">나 어윈이 던지는 쾌락의 숫자 3개로 한 판 놀아보자구!</p>
         </div>
       </div>
 
@@ -235,8 +236,8 @@
 
       function rule(){
         document.getElementById("chr").src = "erwin8.png";
-        document.getElementById("text").innerHTML = "<span>볼(B)</span>은 같은 숫자, 다른 위치,"
-        document.getElementById("plustext").innerHTML = "<span>스트라이크(S)</span>는 같은 숫자, 같은 위치라는 것만 기억하라고!"
+        document.getElementById("text").innerHTML = "<span>볼(B)</span>은 같은 숫자, 다른 위치,<br><span>스트라이크(S)</span>는 같은 숫자, 같은 위치."
+        document.getElementById("plustext").innerHTML = "<span>OUT</span>인 숫자는 빼고 3S를 만들면 게임 끝!"
       }
 
       function evalNum(playernum) {
